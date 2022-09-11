@@ -1,16 +1,14 @@
 #include <stdio.h>
 int main ()
 {
-    float salario_base, imposto, salario_receber;
-
+    float salario, aumento, novo_salario;
     printf("Digite seu salario: ");
-    scanf("%f%*c", &salario_base);
+    scanf("%f%*c", &salario);
 
-    imposto = salario_base * 0.10;
+    aumento = 0.25 * salario;
+    novo_salario = salario + aumento;
 
-    salario_receber = salario_base + 50 - imposto;
-
-    printf("\nO salario a receber eh: %3.2f", salario_receber);
+    printf("\nSeu novo salario eh: %3.2f", novo_salario);
 
     getchar();
     return 0;
