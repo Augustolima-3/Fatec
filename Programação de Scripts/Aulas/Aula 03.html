@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Aula 03</title>
+		<meta charset="UTF-8" />
+		<script type="text/javascript">
+		
+			let numero1 = prompt('Informe o primeiro número:');
+			let numero2 = prompt('Informe o segundo número:');
+			
+			/*if(isNaN(numero1) || isNaN (numero2) || numero1 = '' || numero2 = ''){
+				alert('Valor(es) inválido(s)');
+			}
+			else {
+			numero1 = parseFloat(numero);
+			numero2 = parseFloat(numero2);
+			
+			alert(numero + numero2);
+			}*/
+			
+			if(!isNaN(numero1) && !isNaN(numero2) && numero1 != '' && numero2 != ''){
+			numero1 = parseFloat(numero1);
+			numero2 = parseFloat(numero2);
+			
+			
+			let resposta = numero1 - numero2;
+			alert(resposta);
+			
+			if (resposta < 0) {
+				alert('Número negativo!');
+			}else if (resposta == 0){
+				alert ('Número é zero');
+			}else{
+				alert('Número positivo');
+			}
+			
+			}else{
+			alert(numero1 + numero2);
+			}
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+
+
+
+</html>
