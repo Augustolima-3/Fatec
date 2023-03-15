@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Aula 04</title>
+		<meta charset = "UTF-8"/>
+		<script>
+			let opcao = prompt('Informe uma opção: ');
+		
+			switch(opcao){
+				case 'Adição':
+					let numero1 = prompt('Informe o primeiro número: ');
+					let numero2 = prompt('Informe o segundo número: ');
+					
+					let resposta = numero1 + numero2;
+					
+					alert('Resultado da adição: '+ resposta);
+				break;
+				case 'Subtração':
+					let numero1 = prompt('Informe o primeiro número: ');
+					let numero2 = prompt('Informe o segundo número: ');
+					
+					let resposta = numero1 - numero2;
+					
+					alert('Resultado da subtração: '+ resposta);
+				break;
+				case 'Multiplicação':
+					let numero1 = prompt('Informe o primeiro número: ');
+					let numero2 = prompt('Informe o segundo número: ');
+				
+					let resposta = numero1 * numero2;
+					
+					alert('Resultado da multiplicação: '+ resposta);
+				break;
+				case 'Divisão':
+					let numero1 = prompt('Informe o primeiro número: ');
+					let numero2 = prompt('Informe o segundo número: ');
+				
+					let divisao = numero1 / numero2;
+				
+					alert('Resultado da divisão: '+ divisao);
+				break;
+				
+				default:
+					alert('Operação inválida!');
+			}
+			
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
