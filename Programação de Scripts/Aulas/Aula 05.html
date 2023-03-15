@@ -4,36 +4,34 @@
 		<title>Aula 04</title>
 		<meta charset = "UTF-8"/>
 		<script>
+			let numero1 = prompt('Informe o primeiro número: ');
+			let numero2 = prompt('Informe o segundo número: ');
+			
+			numero1 = parseFloat(numero1);
+			numero2 = parseFloat(numero2);
+		
 			let opcao = prompt('Informe uma opção: ');
 		
 			switch(opcao){
 				case 'Adição':
-					let numero1 = prompt('Informe o primeiro número: ');
-					let numero2 = prompt('Informe o segundo número: ');
 					
 					let resposta = numero1 + numero2;
 					
 					alert('Resultado da adição: '+ resposta);
 				break;
 				case 'Subtração':
-					let numero1 = prompt('Informe o primeiro número: ');
-					let numero2 = prompt('Informe o segundo número: ');
+									
+					let subtracao = numero1 - numero2;
 					
-					let resposta = numero1 - numero2;
-					
-					alert('Resultado da subtração: '+ resposta);
+					alert('Resultado da subtração: '+ subtracao);
 				break;
-				case 'Multiplicação':
-					let numero1 = prompt('Informe o primeiro número: ');
-					let numero2 = prompt('Informe o segundo número: ');
+				case 'Multiplicação':					
 				
-					let resposta = numero1 * numero2;
+					let multiplicacao = numero1 * numero2;
 					
-					alert('Resultado da multiplicação: '+ resposta);
+					alert('Resultado da multiplicação: '+ multiplicacao);
 				break;
-				case 'Divisão':
-					let numero1 = prompt('Informe o primeiro número: ');
-					let numero2 = prompt('Informe o segundo número: ');
+				case 'Divisão':					
 				
 					let divisao = numero1 / numero2;
 				
