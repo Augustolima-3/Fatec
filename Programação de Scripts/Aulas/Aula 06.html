@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Aula 06</title>
+		<meta charset="UTF-8"/>
+		<script type="text/javascript">
+			let numero = prompt('Informe um número: ');
+			
+			if(!isNaN(numero) && numero != ''){
+				numero = parseInt(numero);
+			
+				/*while (numero > 10){
+					alert('Número: ' + numero);
+					numero--;
+				}*/
+				do {
+					alert('Número '+ numero);
+					//numero = numero -1
+					numero--;
+				}while (numero > 10);
+			}			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
