@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Aula 8</title>
+		<meta charset = "UTF-8">
+		<script type="text/javascript">
+		function validarNumero(numero){
+			if(!isNaN (numero) && numero !=''){
+				return true;
+			}else{
+				return false;
+			}
+		}
+			window.onload = function() {
+				document.getElementById('btnCalcular').onclick = function(){
+					let total = document.getElementById('total').value;
+					let parcelas = document.getElementById('parcelas').value;
+					let juros = document.getElementById('juros').value;
+					
+					if (validarNumero(total) && validarNumero (parcelas) && validarNumero(juros)){
+						total = parseFloat(total);
+						parcelas = parseFloat(parcelas);
+						juros = parseFloat(juros);
+						
+						let valorParcela = total / parcelas;
+						let valorJuros = valorParcela * (juros / 100);
+						valorParcela = valorParcela + valorJuros;
+						
+						document.getElementById('valorParcela').innerHTML = '<b>Valor Parcela: ' + valorParcela +'</b>';
+					}else{
+						alert('Informe os valores corretamente!');
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Cálculo de juros</h1>
+			<img src= "juros.jpg" alt= "Cálculo de Juros" width="400" />
+		</header>
+		<main>
+			<!--<label for="total">Total:</label>-->
+			<input type="number" id="total" placeholder="Total"/>
+			<br /><br />
+			<select id="parcelas">
+				<option value="">Selecione o número de parcelas</option>
+				<option value="2">2 Parcelas</option>
+				<option value="3">3 Parcelas</option>
+				<option value="4">4 Parcelas</option>
+				<option value="5">5 Parcelas</option>
+			</select>
+			<br /><br />
+			<input type="number" id="juros" placeholder="Taxa de juros (%)" />
+			<br /><br />
+			<button id="btnCalcular">Calcular</button>
+			<br /><br />
+			<p id="valorFinal"></p>
+			<br /><br />
+			<p id="valorParcela"></p>
+		</main>
+		<footer>
+			<p>Programação de Scripts</p>
+		</footer>
+	</body>
+</html>
