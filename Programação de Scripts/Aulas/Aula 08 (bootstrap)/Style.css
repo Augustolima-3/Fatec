@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 10px;
+}
+
+body {
+    background-color: #708090;
+    color: #00008B;
+}
+
+header{
+    height: 300px;
+    
+}
+
+h1{
+    font-size: 50px;
+}
+
+#texto{
+    font-size: 30px;
+}
+
+.vermelho{
+    color: red;
+}
+
+
+.btn-outline-danger{
+    background-color: #00008B !important;
+
+}
