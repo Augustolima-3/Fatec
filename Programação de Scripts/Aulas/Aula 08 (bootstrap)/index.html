@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Aula 8</title>
+		<meta charset = "UTF-8">
+        <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+	<body>
+		<header>
+			<h1>Cálculo de juros</h1>
+			<img src= "juros.jpg" alt= "Cálculo de Juros" width="400" />
+		</header>
+        <main>
+			<!--<label for="total">Total:</label>-->
+			<input type="number" id="total" placeholder="Total"/>
+			<br /><br />
+			
+			<select id="parcelas">
+				<option value="">Selecione o número de parcelas</option>
+				<option value="2">2 Parcelas</option>
+				<option value="3">3 Parcelas</option>
+				<option value="4">4 Parcelas</option>
+				<option value="5">5 Parcelas</option>
+			</select>
+			
+			<br /><br />
+			<input type="number" id="juros" placeholder="Taxa de juros (%)" />
+			<br /><br />
+            <button class="btn btn-outline-danger">Calcular</button>
+			<br /><br />
+			<p id="valorFinal"></p>
+			<br /><br />
+			<p id="valorParcela"></p>
+            
+            <label for="exemplo" class="form-label">Digite o email</label>
+            <input type="email" class="form-control" id="exemplo" placeholder="nome@exemplo.com">
+		</main>
+		<footer>
+			<p>Programação de Scripts</p>
+		</footer>
+	</body>
+</html>
