@@ -1,4 +1,3 @@
-
 class Produto{
 	constructor(codigo, descricao, quantidade, valor){
 		//propriedade - variavel
@@ -24,25 +23,23 @@ function montarTabela(lista){
 }
 
 function validar(valor){
-	if (!isNaN(valor) && valor != ''){
+	if (!isNaN(valor) && valor != '' && valor > 0){
 		return true;
 	}else{
 		return false;
 	}
 }
 
-listaProdutos = [];
-let produto1 = new Produto(1, 'Arroz', 10, 17.99);
-let produto2 = new Produto(2, 'Feijão', 10, 8.30);
-let produto3 = new Produto(3, 'Açucar', 20, 15.90);
-listaProdutos.push(produto1);
-listaProdutos.push(produto2);
-listaProdutos.push(produto3);
+//window.onload = function(){
+$(document).ready(() => {
+	$('#tabela').html(montarTabela(listaProdutos));
 
-window.onload = function(){
-	document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
+    listaProdutos = [];
+
+	//document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
 	
-	document.getElementById('btnSalvar').onclick = function (){
+	//document.getElementById('btnSalvar').onclick = function (){
+	$('#btnSalvar').click(() => {
 		let codigo = document.getElementById('codigo').value;
 		let descricao = document.getElementById('descricao').value;
 		let quantidade = document.getElementById('quantidade').value;
@@ -57,5 +54,5 @@ window.onload = function(){
 		}else {
 			alert('Informe os dados corretamente');
 		}
-	}
-}
+	});
+});
