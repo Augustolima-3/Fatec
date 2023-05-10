@@ -1,30 +1,58 @@
-
-		function validarNumero(numero){
-			if(!isNaN (numero) && numero !=''){
-				return true;
-			}else{
-				return false;
-			}
-		}
-			window.onload = function() {
-				document.getElementById('btnCalcular').onclick = function(){
-					let total = document.getElementById('total').value;
-					let parcelas = document.getElementById('parcelas').value;
-					let juros = document.getElementById('juros').value;
-					
-					if (validarNumero(total) && validarNumero (parcelas) && validarNumero(juros)){
-						total = parseFloat(total);
-						parcelas = parseFloat(parcelas);
-						juros = parseFloat(juros);
-						
-						let valorParcela = total / parcelas;
-						let valorJuros = valorParcela * (juros / 100);
-						valorParcela = valorParcela + valorJuros;
-						
-						document.getElementById('valorParcela').innerHTML = '<b>Valor Parcela: ' + valorParcela +'</b>';
-					}else{
-						alert('Informe os valores corretamente!');
-					}
-				}
-			}
+class Produto{
+	constructor(codigo, descricao, quantidade, valor){
+		//propriedade - variavel
+		this.codigo = codigo;
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+		this.valor = valor;
 		
+	}
+}
+
+function montarTabela(lista){
+	let auxHtml = '';
+	for (let i = 0; i < lista.length; i++){
+		auxHtml +=  '<tr>'+
+					'<td>'+ lista[i].codigo+ '</td>'+
+					'<td>'+ lista[i].descricao+ '</td>'+
+					'<td>'+ lista[i].quantidade+ '</td>'+
+					'<td>R$'+ lista[i].valor.toFixed(2).replace('.',',')+ '</td>'+
+					'</tr>';
+	}
+	return auxHtml;
+}
+
+function validar(valor){
+	if (!isNaN(valor) && valor != '' && valor > 0){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+//window.onload = function(){
+$(document).ready(() => {
+	$('#tabela').html(montarTabela(listaProdutos));
+
+    listaProdutos = [];
+
+	//document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
+	
+	//document.getElementById('btnSalvar').onclick = function (){
+	$('#btnSalvar').click(() => {
+		let codigo = document.getElementById('codigo').value;
+		let descricao = document.getElementById('descricao').value;
+		let quantidade = document.getElementById('quantidade').value;
+		let valor = document.getElementById('valor').value; 
+		if (validar(codigo) && descricao != '' && validar(quantidade) && validar(valor)) {
+			codigo = parseInt(codigo);
+			quantidade = parseFloat(quantidade);
+			valor = parseFloat(valor);
+			let novoProduto = new Produto (codigo, descricao, quantidade, valor);
+			listaProdutos.push(novoProduto);
+			document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
+		}else {
+			alert('Informe os dados corretamente');
+		}
+	});
+});
