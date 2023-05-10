@@ -29,12 +29,12 @@ function validar(valor){
 		return false;
 	}
 }
-
+listaProdutos = [];
 //window.onload = function(){
 $(document).ready(() => {
 	$('#tabela').html(montarTabela(listaProdutos));
 
-    listaProdutos = [];
+    
 
 	//document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
 	
