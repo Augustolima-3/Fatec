@@ -1,0 +1,41 @@
+#include <stdio.h>
+int main (){
+    int vet[n];
+    int i;
+
+    for (i = 0; ))
+
+
+
+
+return 0;
+}
+
+
+
+
+
+
+
+
+printf("\n") ;
+    printf("\n Resumo dos Resultados") ;
+    soma = 0 ;
+    for ( linha=0; linha < nlinha; linha++ ){
+        for ( coluna=0; coluna < ncoluna; coluna++ ){
+           soma = soma + matriz[linha][coluna];
+        }
+    }
+
+
+
+
+
+     printf("\n") ;
+    soma = 0 ;
+    for ( linha=0; linha < nlinha; linha++ ){
+        for ( coluna=0; coluna < ncoluna; coluna++ ){
+            if ( soma < matriz[linha][coluna])
+           soma = matriz[linha][coluna];
+        }
+    }
