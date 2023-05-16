@@ -17,6 +17,11 @@ function montarTabela(lista){
 					'<td>'+ lista[i].descricao+ '</td>'+
 					'<td>'+ lista[i].quantidade+ '</td>'+
 					'<td>R$'+ lista[i].valor.toFixed(2).replace('.',',')+ '</td>'+
+                    '<td>'+
+                        '<a href="#" class= "btn btn-warning" rel="'+ i +'">'+
+                            '<img src="editar.png" width="20"/>'+
+                        '</a>'+
+                    '</td>'+
 					'</tr>';
 	}
 	return auxHtml;
@@ -55,8 +60,13 @@ $(document).ready(() => {
 			let novoProduto = new Produto (codigo, descricao, quantidade, valor);
 			listaProdutos.push(novoProduto);
 			document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
+            $('#tabela').html (montarTabela(listaProdutos));
+            $('input').val('');
 		}else {
 			alert('Informe os dados corretamente');
 		}
 	});
+    $('#tabela').on('click', '.btn-warning', () => {
+        alert('ok');
+    });
 });
