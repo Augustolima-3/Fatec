@@ -19,7 +19,7 @@ function montarTabela(lista){
 					'<td>R$'+ lista[i].valor.toFixed(2).replace('.',',')+ '</td>'+
                     '<td>'+
                         '<a href="#" class= "btn btn-warning" rel="'+ i +'">'+
-                            '<img src="editar.png" width="20"/>'+
+                            '<img src="editar.png" width="20" rel="'+ i +'"/>'+
                         '</a>'+
                     '</td>'+
 					'</tr>';
@@ -34,6 +34,7 @@ function validar(valor){
 		return false;
 	}
 }
+auxPosicao = '';
 listaProdutos = [];
 //window.onload = function(){
 $(document).ready(() => {
@@ -66,7 +67,11 @@ $(document).ready(() => {
 			alert('Informe os dados corretamente');
 		}
 	});
-    $('#tabela').on('click', '.btn-warning', () => {
-        alert('ok');
+    $('#tabela').on('click', '.btn-warning', (evento) => {
+        auxPosicao = evento.target.getAttribute('rel');
+        $('#codigo').val(listaProdutos[auxPosicao].codigo);
+        $('#descricao').val(listaProdutos[auxPosicao].descricao);
+        $('#quantidade').val(listaProdutos[auxPosicao].quantidade);
+        $('#valor').val(listaProdutos[auxPosicao].valor);
     });
 });
