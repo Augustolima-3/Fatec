@@ -22,6 +22,11 @@ function montarTabela(lista){
                             '<img src="editar.png" width="20" rel="'+ i +'"/>'+
                         '</a>'+
                     '</td>'+
+					'<td>' +
+						'<a href="#" class= "btn btn-danger" rel="'+ i +'">'+
+							'<img src="excluir.png" width="20" rel="'+ i +'"/>'+
+						'</a>'+
+					'</td'+
 					'</tr>';
 	}
 	return auxHtml;
@@ -59,7 +64,12 @@ $(document).ready(() => {
 			quantidade = parseFloat(quantidade);
 			valor = parseFloat(valor);
 			let novoProduto = new Produto (codigo, descricao, quantidade, valor);
-			listaProdutos.push(novoProduto);
+			if(auxPosicao == ''){
+				listaProdutos.push(novoProduto);
+			}else{
+				listaProdutos [auxPosicao] = novoProduto;
+				auxPosicao = '';
+			}
 			document.getElementById('tabela').innerHTML = montarTabela(listaProdutos);
             $('#tabela').html (montarTabela(listaProdutos));
             $('input').val('');
@@ -74,4 +84,26 @@ $(document).ready(() => {
         $('#quantidade').val(listaProdutos[auxPosicao].quantidade);
         $('#valor').val(listaProdutos[auxPosicao].valor);
     });
+
+	$('#tabela').on('click', '.btn-danger', (evento) => {
+        if (confirm('Tem certeza que deseja excluir?')){
+			listaProdutos.splice(evento.target.getAttribute('rel'), 1);
+			$('#tabela').html(montarTabela(listaProdutos));
+		}
+	});
+
+	$('#btnJson').click(() =>{
+		let produtosJson = JSON.stringify(listaProdutos);
+		alert(produtosJson);
+	});
+	
+	$('#btnAjax').click(() => {
+		$.ajax ({
+			url: 'http://date.jsontest.com',
+			method: 'GET',
+			dataType: 'json',			
+		}).done(function(dados){
+			$('#data').html (dados);
+		});
+	})
 });
