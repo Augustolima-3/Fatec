@@ -101,7 +101,7 @@ $(document).ready(() => {
 		$.ajax ({
 			url: 'http://date.jsontest.com',
 			method: 'GET',
-			dataType: 'json',			
+			dataType: 'json'			
 		}).done(function(dados){
 			$('#data').html (dados);
 		});
