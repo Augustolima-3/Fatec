@@ -99,11 +99,24 @@ $(document).ready(() => {
 	
 	$('#btnAjax').click(() => {
 		$.ajax ({
-			url: 'http://date.jsontest.com',
+			url: 'http://date.jsontest.com/',
 			method: 'GET',
 			dataType: 'json'			
 		}).done(function(dados){
-			$('#data').html (dados.date);
+			$('#data').html(dados.date);
 		});
-	})
+	});
+
+	$('#btnCancelar').click(() => {
+		$('input').val('');
+		auxPosicao = '';
+	});
+
+	$('#valor').keypress((evento) => {
+		if(evento.which == 13){
+			$('#btnSalvar').trigger('click');
+		}
+	});
+
+	$('table').DataTable();
 });
