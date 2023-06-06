@@ -19,6 +19,16 @@ function montarTabela(lista){
 					'<td>'+ lista[i].quantidadeDias+ '</td>'+
 					'<td>R$'+ lista[i].valorDiaria.toFixed(2).replace('.',',')+ '</td>'+
                     '<td>'+ lista[i].nomeLocador+ '</td>'+
+                    '<td>'+
+                        '<a href="#" class= "btn btn-warning" rel="'+ i +'">'+
+                            '<img src="editar.png" width="20" rel="'+ i +'"/>'+
+                        '</a>'+
+                    '</td>'+
+                    '<td>' +
+                        '<a href="#" class= "btn btn-danger" rel="'+ i +'">'+
+                            '<img src="excluir.png" width="20" rel="'+ i +'"/>'+
+                        '</a>'+
+                    '</td>'+
 					'</tr>';
 	}
 	return auxHtml;
@@ -31,29 +41,77 @@ function validar(valor){
 		return false;
 	}
 }
+auxPosicao = '';
+listaAluguel = [];
+$(document).ready(() => {
+    $('#tabela').html(montarTabela(listaAluguel));
 
-window.onload = function(){
-
-    listaAluguel = [];
-
-	document.getElementById('tabela').innerHTML = montarTabela(listaAluguel);
-	
-	document.getElementById('btnSalvar').onclick = function (){
-		let codigo = document.getElementById('codigo').value;
-		let nome = document.getElementById('nome').value;
-		let quantidadeDias = document.getElementById('quantidadeDias').value;
-		let valorDiaria = document.getElementById('valorDiaria').value; 
-        let nomeLocador = document.getElementById('nomeLocador').value;
+	$('#btnSalvar').click(() => {
+		let codigo = $('#codigo').val();
+		let nome = $('#nome').val();
+		let quantidadeDias = $('#quantidadeDias').val(); 
+		let valorDiaria = $('#valorDiaria').val();
+		let nomeLocador = $('#nomeLocador').val();
 
 		if (validar(codigo) && nome != '' && validar(quantidadeDias) && validar(valorDiaria)) {
 			codigo = parseInt(codigo);
 			quantidadeDias = parseFloat(quantidadeDias);
 			valorDiaria = parseFloat(valorDiaria);
 			let novoAluguel = new Aluguel (codigo, nome, quantidadeDias, valorDiaria, nomeLocador);
-			listaAluguel.push(novoAluguel);
+			if(auxPosicao == ''){
+				listaAluguel.push(novoAluguel);
+			}else{
+				listaAluguel [auxPosicao] = novoAluguel;
+				auxPosicao = '';
+			}
 			document.getElementById('tabela').innerHTML = montarTabela(listaAluguel);
+			$('#tabela').html (montarTabela(listaAluguel));
+			$('input').val('');
 		}else {
 			alert('Informe os dados corretamente');
 		}
-	}
-}
+	});
+	$('#tabela').on('click', '.btn-warning', (evento) => {
+		auxPosicao = evento.target.getAttibute('rel');
+		$('#codigo').val(listaAluguel[auxPosicao].codigo);
+		$('#nome').val(listaAluguel[auxPosicao].nome);
+		$('#quantidadeDias').val(listaAluguel[auxPosicao].quantidadeDias);
+		$('#valorDiaria').val(listaAluguel[auxPosicao].valorDiaria);
+		$('#nomeLocador').val(listaAluguel[auxPosicao].nomeLocador);
+	});
+
+	$('#tabela').on('click', 'btn-danger', (evento) => {
+		if (confirm('Tem certeza que deseja excluir?')){
+			listaAluguel.splice(evento.target.getAttibute('rel'), 1);
+			$('#tabela').html(montarTabela(listaAluguel));
+		}
+	});
+
+	$('#btnJson').click(() => {
+		let produtosJson = JSON.stringify(listaAluguel);
+		alert(produtosJson);
+	});
+
+	$('#btnAjax').click(() => {
+		$.ajax ({
+			url: 'http://date.jsontest.com/',
+			method: 'GET',
+			dataType: 'json'
+		}).done(function(dados){
+			$('#data').html(dados.date);
+		});
+	});
+
+	$('#btnCancelar').click(() => {
+		$('input').val('');
+		auxPosicao = '';
+	});
+
+	$('#valorDiaria').keypress((evento) => {
+		if(evento.which == 13){
+			$('#btnSalvar').trigger('click');
+		}
+	});
+
+	$('table').DataTable();
+});
