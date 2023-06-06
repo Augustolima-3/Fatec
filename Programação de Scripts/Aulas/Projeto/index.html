@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 11</title>
     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="datatables.css"/>
+    <script type="text/javascript" src="jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="datatables.js"></script>
     <link rel="stylesheet" href="AugustoVLima.css">
     <script type="text/javascript" src="AugustoVlima.js"></script>
 </head>
@@ -21,7 +24,6 @@
             <div class="col-md-6">
                 <div class="mb-3 mt-3">   
                     <input type="text" class="form-control" id="codigo" placeholder="Código"/>
-                <!---<div id="emailHelp" class="form-text">Texto</div>-->
                 </div>
                 <div class="mb-3">
                     <input type="text" class="form-control" id="nome" placeholder="Nome Veículo"/>
@@ -36,6 +38,7 @@
                     <input type="text" class="form-control" id="nomeLocador" placeholder="Nome Locador">
                 </div>
                     <button class="btn btn-primary" id="btnSalvar">Salvar</button>
+                    <button class="btn btn-dark" id="btnCancelar">Cancelar</button>
                 </div>
                 <div class="col-md-6">
                     <p>Listagem</p>
@@ -43,20 +46,26 @@
                         <thead>
                             <tr>
                                 <th scope="col">Códigos</th>
-                                <th scope="col">nome</th>
+                                <th scope="col">Nome</th>
                                 <th scope="col">Quantidade Dias</th>
                                 <th scope="col">Valor Diária</th>
                                 <th scope="col">Nome Locador</th>
+                                <th scope="cel">Alterar</th>
+                                <th scope="cel">Excluir</th>
                             </tr>
                         </thead>
-                        <tbody id="tabela"> </tbody>
-                      </table>
+                        <tbody id="tabela"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <footer class="container">
             <p class="float-end"><a href="#">Voltar</a></p>
-            
+            <p>Projeto</p>
+            <button id="btnJson" class="btn btn-primary">Gerar JSON</button>
+            <br />
+            <br />
+            <button id="btnAjax" class="btn btn-primary">Ajax</button>
         </footer>
 </body>
 </html>
