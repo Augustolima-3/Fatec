@@ -1,0 +1,48 @@
+* {
+    margin: 0 auto;
+}
+
+body{
+    width: 80%;
+}
+
+.Fernando {
+    background-color: #841c44;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+
+}
+
+.cabeca{
+    width: 100%;
+}
+
+.cabecalho {
+    display: flex;
+    gap: 80px;
+    background-color: gray;
+    padding: 20px;
+}
+
+.cabecalho-link {
+    text-decoration: none;
+    color: white;
+    display: flex;
+}
+
+.paragrafo {
+    margin: 10px;
+}
+
+.titulo {
+    margin: 18px;
+}
+
+.rodape {
+    background-color: #841c44;
+}
