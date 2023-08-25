@@ -51,10 +51,10 @@
 
         <footer class="rodape">
             <nav class="rodape-menu">
-                <a href="Instagram" class="instagram"><img src="Assets/instagram_preto.png" alt="Logo Instagram"></a>
-                <a href="Facebook" class="facebook"><img src="Assets/facebook_preto.png" alt="Logo Facebook"></a>
-                <a href="Youtube" class="youtube"><img src="Assets/youtube_preto.png" alt="Logo Youtube"></a>
-                <a href="Twitter" class="twitter"><img src="Assets/twitter_preto.png" alt="Logo Twitter"></a>
+                <a href="Instagram" ><img src="Assets/instagram_preto.png" alt="Logo Instagram" class="logo"></a>
+                <a href="Facebook" ><img src="Assets/facebook_preto.png" alt="Logo Facebook" class="logo"></a>
+                <a href="Youtube" ><img src="Assets/youtube_preto.png" alt="Logo Youtube" class="logo"></a>
+                <a href="Twitter"><img src="Assets/twitter_preto.png" alt="Logo Twitter" class="logo"></a>
             </nav>
         </footer>
 </body>
