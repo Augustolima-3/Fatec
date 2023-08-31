@@ -11,10 +11,10 @@
     <header class="cabeca">
         <h1 class="Fernando">Fernando Pessoa</h1>
         <nav class="cabecalho">
-            <a class="cabecalho-link" href="Home.html">Home</a>
+            <a class="cabecalho-link" href="Index.html">Home</a>
             <a class="cabecalho-link" href="Fotos.html">Fotos</a>
             <a class="cabecalho-link" href="Bibliografia.html">Bibliografia</a>
-            <a class="cabecalho-link" href="Obras.html">Obras</a>
+            <a class="cabecalho-link" href="Obras.html">Obras Póstumas</a>
         </nav>
     </header>
     <p class="paragrafo">Fernando António Nogueira Pessoa (Lisboa, 13 de junho de 1888 — Lisboa, 30 de novembro de 1935), mais conhecido como Fernando Pessoa, foi um poeta, filósofo e escritor português.
